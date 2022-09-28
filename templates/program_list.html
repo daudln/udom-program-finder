@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block title %} | Program List{% endblock title %}
+{% block content%}
+<h2 class="pt-3">
+  Program offered at the
+  <span><a href="https://www.udom.ac.tz">University of Dodoma</a></span>
+</h2>
+{% for program in program_list %}
+<div class="py-3">
+  <div class="card">
+    <div class="card-header">
+      <span class="fw-bold h5">{{program.name}}</span>&middot;
+    </div>
+    <div class="card-body">{{program.description}}</div>
+
+    <div class="card-footer text-center">
+      <a href="{% url 'program_detail' program.pk %}"
+        ><span class="fw-bold bi bi-eye mx-1">View more</span></a
+      >
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+<div class="pagination pb-2">
+  <span class="step-links text-center">
+    {% if page_obj.has_previous %}
+    <a href="?page=1"> &laquo;</a>
+    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    <span class="current">
+      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    <a href="?page={{ page_obj.paginator.num_pages }}"> &raquo;</a>
+    {% endif %}
+  </span>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %} | {{program.name}}{% endblock title %}
+
+{% block content %}
+<div class="py-4">
+    <div class="card">
+        <div class="card-header">
+            <span class="fw-bold h5">{{program.name}}</span>&middot;
+        </div>
+        <div class="card-body">
+            <h4 class="card-title text-primary">College</h4>
+            <p>{{program.college}}</p> 
+            <h4 class="card-title text-primary">Program description</h4>
+            <p>{{program.description}}</p>
+            <h4 class="card-title text-primary">Program fee</h4>
+            <p>{{program.fee}} Tsh</p>
+            {% if program.knowledge%} 
+            <h4 class="card-title text-primary">Knowledge</h4>
+            <p>{{program.knowledge}}</p>
+            {% endif %}
+            {% if program.skills%}
+            <h4 class="card-title text-primary">Skills obtained</h4>
+            <p>{{program.skills}}</p> 
+            {% endif %}
+            {% if program.competences%}
+            <h4 class="card-title text-primary">Program competences</h4>
+            <p>{{program.competences}}</p> 
+            {% endif %}
+            {% if program.fields_of_work %}
+            <h4 class="card-title text-primary">Fields of work</h4>
+            <p>{{program.fields_of_work}}</p> 
+            {% endif %}
+            {% if program.fields_of_work %}
+            <h4 class="card-title text-primary">Special requirements</h4>
+            <p>{{program.special_requirements}}</p> 
+            {% endif %}
+            
+        </div>
+
+        <div class="card-footer text-center">
+            Back to <a href="{% url 'program_list' %}">All programs</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

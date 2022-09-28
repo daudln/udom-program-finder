@@ -1,0 +1,10 @@
+@font-face {
+  font-family: Lato-Regular;
+  src: url("../fonts/Lato-Regular.ttf");
+}
+body {
+  font-family: Lato-Regular;
+}
+a {
+  text-decoration: none;
+}
